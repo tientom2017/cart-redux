@@ -4,7 +4,19 @@ class CartTotal extends Component {
         super(props);
         this.state = {}
     }
+
+    renderTotalPrice(cartInfo) {
+        var totalPrice = 0;
+        if (cartInfo.length > 0) {
+            for (let i = 0; i < cartInfo.length; i++) {
+                totalPrice += (cartInfo[i].product.price * cartInfo[i].qty);
+            }
+        }
+        return totalPrice;
+    };
+
     render() {
+        var { cartInfo } = this.props;
         return (
             <tr>
                 <td colSpan={3} />
@@ -15,7 +27,7 @@ class CartTotal extends Component {
                 </td>
                 <td>
                     <h4>
-                        <strong>15$</strong>
+                        <strong>{this.renderTotalPrice(cartInfo)}$</strong>
                     </h4>
                 </td>
                 <td colSpan={3}>

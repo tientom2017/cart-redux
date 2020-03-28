@@ -1,5 +1,3 @@
-import { bindActionCreators } from "redux"
-
 var initialState = [
     {
         id: 1,

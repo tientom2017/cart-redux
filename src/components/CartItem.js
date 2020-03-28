@@ -5,6 +5,7 @@ class CartItem extends Component {
         this.state = {}
     }
     render() {
+        var { productInfo } = this.props;
         return (
             <tr>
                 <th scope="row">
@@ -12,12 +13,12 @@ class CartItem extends Component {
                 </th>
                 <td>
                     <h5>
-                        <strong>Iphone 6 Plus</strong>
+                        <strong>{productInfo.product.name}</strong>
                     </h5>
                 </td>
-                <td>15$</td>
+                <td>{productInfo.product.price}$</td>
                 <td className="center-on-small-only">
-                    <span className="qty">1 </span>
+                    <span className="qty">{productInfo.qty} </span>
                     <div className="btn-group radio-group" data-toggle="buttons">
                         <label className="btn btn-sm btn-primary
                                                 btn-rounded waves-effect waves-light">
@@ -29,7 +30,7 @@ class CartItem extends Component {
                         </label>
                     </div>
                 </td>
-                <td>15$</td>
+                <td>{productInfo.product.price * productInfo.qty}$</td>
                 <td>
                     <button type="button" className="btn btn-sm btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title data-original-title="Remove item">X</button>
                 </td>
